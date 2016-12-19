@@ -87,7 +87,10 @@ int main (int argc, char **argv)
         perror(argv[optind]);
         exit(1);
     }
-    
+
+    /*for wav format input file*/
+    char tmp[44];
+    read(infile, tmp, 44);
     /*
     * Open the output file for writing.
     */
