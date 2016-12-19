@@ -1,0 +1,21 @@
+vox and devox:
+This package is for conversions between Oki ADPCM and linear voice
+files. (see the man page)
+
+The makefile is for gcc.  If you have another compiler, change the
+makefile.  Also note the INSTALLDIR if you want make to also install
+the binaries and man pages.
+
+To just build:
+    make all
+To build and install:
+    make install
+
+Other recommended utilities:  
+
+sox (general purpose voice file format conversion) 
+Generic source:ftp.cwi.nl, in directory /pub/audio/sox<version>.tar.Z. 
+You may be able to locate a nearer version.
+Linux users look in: sunsite.unc.edu /pub/Linux/apps/sound/convert/
+
+mxv (waveform viewer/editor) ftp.ccmrc.ucsb.edu/pub/MixViews

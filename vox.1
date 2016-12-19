@@ -1,0 +1,70 @@
+.de Sh
+.br
+.ne 5
+.PP
+\fB\\$1\fR
+.PP
+..
+.de Sp
+.if t .sp .5v
+.if n .sp
+..
+.TH VOX 1
+.SH NAME
+vox, devox - programs to convert voice files between linear and Oki (Dialogic)
+ADPCM format.
+.SH SYNOPSIS
+.B vox [-b 8 | -b 16] \fIinfile outfile \fB
+.br
+.B devox [ -b 8 | -b 16] \fIinfile outfile \fB
+.br
+.SH DESCRIPTION
+.I vox 
+translates sound files from linear (8 or 16 bit) to Oki ADPCM format.
+.I devox 
+translates sound files from Oki ADPCM to linear (8 or 16 bit) format.
+The Oki ADPCM format is commonly found on platforms using voice
+processing hardware from Dialogic for computer telephony applications.
+The default Dialogic file is
+titled with a '.vox' suffix and is sampled at 6022 samples per
+second -- thus considered a 24 Kbit/sec coder.  Sampling at 8000
+samples per second is also popular in the computer telephony world.
+.SH OPTIONS
+The option syntax is pretty simple
+.br
+	vox file.8bit file.32K
+.br
+translates a sound sample in 8 bit linear file 
+into Oki ADPCM format, while
+.br
+	devox file.32K file.8bit
+.br
+does the reverse.
+.PP
+Linear File options:
+.TP 10
+.B -b 8 
+(Default) The linear file is in 8 bit (unsigned byte) format.
+The option is not needed since it is the default.
+.TP 10
+.B -b 16 
+The linear file is in 16 bit (signed word) format.
+.SH FILE TYPES
+.I vox
+and
+.I devox
+only support raw (no header) binary files.  The
+ADPCM files are compatible with Dialogic's so-called vox files. 
+They contain two 4 bit samples stored in one unsigned char.
+The sampling rate does not matter to these programs (may be
+6 or 8 kHz).  The linear files are either in 8 bit linear (not mu-law)
+or 16 bit linear format.
+.SH BUGS
+Only supports raw files.  Use the sox program to convert the linear
+files to/from other file formats.
+.SH AUTHOR
+	Tim Bower, tim@cis.ksu.edu
+.SH NOTICES
+Permission to use, copy, modify, and distribute this software and its
+documentation for any purpose and without fee is hereby granted.
+This software is provided "as is" without express or implied warranty.
